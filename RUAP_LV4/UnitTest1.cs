@@ -74,9 +74,16 @@ namespace SeleniumTests
         public void TheCase3Test()
         {
             driver.Navigate().GoToUrl("http://demowebshop.tricentis.com/");
+            driver.FindElement(By.LinkText("Log in")).Click();
+            driver.FindElement(By.Id("Email")).Clear();
+            driver.FindElement(By.Id("Email")).SendKeys("dsutalo@etfos.hr");
+            driver.FindElement(By.Id("Password")).Clear();
+            driver.FindElement(By.Id("Password")).SendKeys("12345678");
+            driver.FindElement(By.XPath("//input[@value='Log in']")).Click();
+            driver.Navigate().GoToUrl("http://demowebshop.tricentis.com/");
             driver.FindElement(By.XPath("(//a[contains(text(),'Computers')])[3]")).Click();
             driver.FindElement(By.XPath("(//a[contains(text(),'Desktops')])[3]")).Click();
-            driver.FindElement(By.XPath("//img[@alt='Picture of Build your own cheap computer']")).Click();
+            driver.FindElement(By.XPath("//input[@value='Add to cart']")).Click();
             driver.FindElement(By.Id("product_attribute_72_3_20_58")).Click();
             driver.FindElement(By.Id("product_attribute_72_5_18_65")).Click();
             driver.FindElement(By.Id("product_attribute_72_6_19_55")).Click();
